@@ -1,0 +1,8 @@
+{
+    "manifest_version":2,
+    "name":"soundcloud shuffle",
+    "description":"shuffle soundcloud tracklist properly",
+    "version":"0.0.0",
+
+    "permissions":["https://soundcloud.com/*"]
+}
