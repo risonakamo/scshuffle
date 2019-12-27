@@ -15,14 +15,13 @@ async function scshuffle()
     // //close the queue and open it again
     // toggleQueueButton.click();
     // toggleQueueButton.click();
-    console.log("done");
+    console.log("fully done");
 }
 
 // open the queue. if the queue is already open, will open it again. includes a wait time
 // to ensure the queue is open
 function toggleQueue()
 {
-    console.log("toggling queue");
     return new Promise((resolve)=>{
         //this button toggles the queue
         var toggleQueueButton=document.querySelector(".playbackSoundBadge__showQueue");
@@ -71,7 +70,7 @@ function duplicateCurrent()
 
 // the track list must be open and in view. attempts to scroll to the bottom
 // of the track list and click the autoplay button
-function scrollTrackList()
+function scrollTrackList2()
 {
     var tracklist=document.querySelector(".queue__scrollableInner");
 
@@ -98,6 +97,37 @@ function scrollTrackList()
             }
         },300);
     });
+}
+
+async function scrollTrackList()
+{
+    var tracklist=document.querySelector(".queue__scrollableInner");
+
+    await retryPromise(async ()=>{
+        await new Promise((resolve,reject)=>{
+            tracklist.scrollTop=tracklist.scrollHeight;
+
+            setTimeout(()=>{
+                var autoplaybutton=document.querySelector(".queueFallback__toggle label");
+
+                if (autoplaybutton)
+                {
+                    if (autoplaybutton.classList.contains("sc-toggle-active"))
+                    {
+                        autoplaybutton.click();
+                    }
+
+                    resolve();
+                    return;
+                }
+
+                else
+                {
+                    reject();
+                }
+            },300);
+        });
+    },200,5000);
 }
 
 // shuffle button must be in view. engages shuffle, flipping it if it was
@@ -128,14 +158,17 @@ async function retryPromise(tryFunction,delay=200,maxRetries=4,currentRetry=0)
 
     catch(e)
     {
-        console.log("retrying...");
         if (currentRetry>=maxRetries)
         {
+            console.log("max retries");
             return;
         }
 
-        setTimeout(()=>{
-            return retryPromise(tryFunction,delay,maxRetries,++currentRetry);
-        },delay);
+        await new Promise((resolve)=>{
+            setTimeout(async ()=>{
+                await retryPromise(tryFunction,delay,maxRetries,++currentRetry);
+                resolve();
+            },delay);
+        });
     }
 }

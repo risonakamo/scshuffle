@@ -1,5 +1,7 @@
 # things do
-- need to fix scroll to bottom function
+- figure out where to put button to trigger shuffle
+
+- ~~need to fix scroll to bottom function~~
 
 # usage plan
 - expects all the songs in the tracklist to be the desired songs to shuffle over
