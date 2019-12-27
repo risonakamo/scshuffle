@@ -2,7 +2,9 @@ async function scshuffle()
 {
     await toggleQueue();
 
-    await duplicateCurrent();
+    await retryPromise(async ()=>{
+        await duplicateCurrent();
+    },200,10);
 
     await scrollTrackList();
 
@@ -46,9 +48,18 @@ function toggleQueue()
 // duplicates the currently selected song.
 function duplicateCurrent()
 {
-    return new Promise((resolve)=>{
+    return new Promise((resolve,reject)=>{
         //open the 3 dot menu of the current song in the tracklist
-        document.querySelector(".m-active .queueItemView__more").click();
+        var currentSongMenu=document.querySelector(".m-active .queueItemView__more");
+
+        if (!currentSongMenu)
+        {
+            reject();
+            return;
+        }
+
+        currentSongMenu.click();
+
         //click the add to next up, duplicating the current song
         document.querySelector(".addToNextUp").click();
 
@@ -106,4 +117,25 @@ function toggleShuffle()
             resolve();
         },500);
     });
+}
+
+async function retryPromise(tryFunction,delay=200,maxRetries=4,currentRetry=0)
+{
+    try
+    {
+        await tryFunction();
+    }
+
+    catch(e)
+    {
+        console.log("retrying...");
+        if (currentRetry>=maxRetries)
+        {
+            return;
+        }
+
+        setTimeout(()=>{
+            return retryPromise(tryFunction,delay,maxRetries,++currentRetry);
+        },delay);
+    }
 }
