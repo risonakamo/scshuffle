@@ -2,8 +2,8 @@
 - expects all the songs in the tracklist to be the desired songs to shuffle over
 
 # execution actions
-- open tracklist
-- duplicate 1st song or currently selected song
+- ~~open tracklist~~
+- ~~duplicate 1st song or currently selected song~~
 - scrolls to bottom of tracklist
 - keep scrolling until autoplay button is visible
 - trigger the autoplay button
