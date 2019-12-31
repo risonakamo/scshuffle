@@ -4,5 +4,9 @@
     "description":"shuffle soundcloud tracklist properly",
     "version":"0.0.0",
 
-    "permissions":["https://soundcloud.com/*"]
+    "permissions":["https://soundcloud.com/*"],
+
+    "browser_action":{
+        "default_popup":"popup.html"
+    }
 }
