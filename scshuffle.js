@@ -70,35 +70,36 @@ function duplicateCurrent()
 
 // the track list must be open and in view. attempts to scroll to the bottom
 // of the track list and click the autoplay button
-function scrollTrackList2()
-{
-    var tracklist=document.querySelector(".queue__scrollableInner");
+// function scrollTrackList2()
+// {
+//     var tracklist=document.querySelector(".queue__scrollableInner");
 
-    tracklist.scrollTop=tracklist.scrollHeight;
+//     tracklist.scrollTop=tracklist.scrollHeight;
 
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            console.log("scrolling");
-            var autoplaybutton=document.querySelector(".queueFallback__toggle label");
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             console.log("scrolling");
+//             var autoplaybutton=document.querySelector(".queueFallback__toggle label");
 
-            if (autoplaybutton)
-            {
-                if (autoplaybutton.classList.contains("sc-toggle-active"))
-                {
-                    autoplaybutton.click();
-                }
+//             if (autoplaybutton)
+//             {
+//                 if (autoplaybutton.classList.contains("sc-toggle-active"))
+//                 {
+//                     autoplaybutton.click();
+//                 }
 
-                resolve();
-            }
+//                 resolve();
+//             }
 
-            else
-            {
-                scrollTrackList(tracklist);
-            }
-        },300);
-    });
-}
+//             else
+//             {
+//                 scrollTrackList(tracklist);
+//             }
+//         },300);
+//     });
+// }
 
+//scroll to the end of the tracklist and ensure the autoplay button is off
 async function scrollTrackList()
 {
     var tracklist=document.querySelector(".queue__scrollableInner");
@@ -172,3 +173,5 @@ async function retryPromise(tryFunction,delay=200,maxRetries=4,currentRetry=0)
         });
     }
 }
+
+scshuffle();

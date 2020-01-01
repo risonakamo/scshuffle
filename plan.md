@@ -1,7 +1,7 @@
 # things do
-- figure out where to put button to trigger shuffle
 - icon
 
+- ~~figure out where to put button to trigger shuffle~~
 - ~~need to fix scroll to bottom function~~
 
 # usage plan

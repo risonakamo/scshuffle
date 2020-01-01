@@ -12,7 +12,10 @@ function main()
             return;
         }
 
-        chrome.tabs.executeScript(tabs[0].id,{file:"test.js"});
-        window.close();
+        document.querySelector(".message").textContent="Shuffling...";
+
+        chrome.tabs.executeScript(tabs[0].id,{file:"scshuffle.js"},(result)=>{
+            window.close();
+        });
     });
 }
