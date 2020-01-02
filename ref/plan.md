@@ -1,5 +1,6 @@
 # things do
 - icon
+- fix spacing on not a soundcloud message
 
 - ~~figure out where to put button to trigger shuffle~~
 - ~~need to fix scroll to bottom function~~
