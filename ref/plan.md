@@ -2,6 +2,7 @@
 - icon
 - fix spacing on not a soundcloud message
 
+- ~~go to next song immediately~~
 - ~~figure out where to put button to trigger shuffle~~
 - ~~need to fix scroll to bottom function~~
 

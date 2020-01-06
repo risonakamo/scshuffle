@@ -12,6 +12,8 @@ async function scshuffle()
 
     await toggleQueue();
 
+    forwardSong();
+
     // //close the queue and open it again
     // toggleQueueButton.click();
     // toggleQueueButton.click();
@@ -172,6 +174,12 @@ async function retryPromise(tryFunction,delay=200,maxRetries=4,currentRetry=0)
             },delay);
         });
     }
+}
+
+// click the forward button
+function forwardSong()
+{
+    document.querySelector(".playControls__next").click();
 }
 
 scshuffle();
