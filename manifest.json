@@ -1,8 +1,10 @@
 {
     "manifest_version":2,
     "name":"soundcloud shuffle",
+    "short_name":"scshuffle",
     "description":"shuffle soundcloud tracklist properly",
-    "version":"0.0.0",
+    "homepage_url":"https://github.com/risonakamo/scshuffle",
+    "version":"1.0.0",
 
     "permissions":["https://soundcloud.com/*"],
 
@@ -11,6 +13,8 @@
     },
 
     "icons":{
-        "128":"icons/128.png"
+        "128":"icons/128.png",
+        "48":"icons/48.png",
+        "16":"icons/16.png"
     }
 }

@@ -1,5 +1,5 @@
 # things do
-- icon
+- ~~icon~~
 
 - ~~fix spacing on not a soundcloud message~~
 - ~~go to next song immediately~~
