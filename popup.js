@@ -14,8 +14,16 @@ function main()
 
         document.querySelector(".message").textContent="Shuffling...";
 
-        chrome.tabs.executeScript(tabs[0].id,{file:"scshuffle.js"},(result)=>{
-            window.close();
-        });
+        chrome.scripting.executeScript(
+            {
+                files:["scshuffle.js"],
+                target:{
+                    tabId:tabs[0].id,
+                }
+            },
+            (result)=>{
+                window.close();
+            }
+        );
     });
 }

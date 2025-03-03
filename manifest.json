@@ -1,15 +1,19 @@
 {
-    "manifest_version":2,
     "name":"soundcloud shuffle",
     "short_name":"scshuffle",
     "description":"shuffle soundcloud tracklist properly",
     "homepage_url":"https://github.com/risonakamo/scshuffle",
-    "version":"1.0.0",
+    "version":"1.1.0",
+    "manifest_version":3,
+    "author":"risonakamo",
 
-    "permissions":["https://soundcloud.com/*"],
+    "permissions": ["scripting"],
+    "host_permissions":["https://soundcloud.com/*"],
 
-    "browser_action":{
-        "default_popup":"popup.html"
+
+    "action": {
+        "default_title":"Soundcloud Shuffle",
+        "default_popup": "popup.html"
     },
 
     "icons":{
